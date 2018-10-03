@@ -810,6 +810,14 @@ config VIDEO_LCD_DCLK_PHASE
 	---help---
 	Select LCD panel display clock phase shift, range 0-3.
 
+config VIDEO_LCD_DE_LOW
+	bool "LCD panel active-low data enable signal"
+	depends on VIDEO_SUNXI
+	default n
+	---help---
+	Make the data enable signal active-low when driving the LCD panel.
+	This should only be enabled if the panel actually needs it.
+
 config VIDEO_LCD_POWER
 	string "LCD panel power enable pin"
 	depends on VIDEO_SUNXI

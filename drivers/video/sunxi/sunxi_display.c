@@ -639,6 +639,10 @@ static void sunxi_ctfb_mode_to_display_timing(const struct ctfb_res_modes *mode,
 		timing->flags |= DISPLAY_FLAGS_VSYNC_LOW;
 	if (mode->vmode == FB_VMODE_INTERLACED)
 		timing->flags |= DISPLAY_FLAGS_INTERLACED;
+
+#ifdef CONFIG_VIDEO_LCD_DE_LOW
+	timing->flags |= DISPLAY_FLAGS_DE_LOW;
+#endif
 }
 
 static void sunxi_lcdc_tcon0_mode_set(const struct ctfb_res_modes *mode,
