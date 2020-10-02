@@ -470,6 +470,8 @@ void video_ctfb_mode_to_display_timing(const struct ctfb_res_modes *mode,
 		timing->flags |= DISPLAY_FLAGS_VSYNC_HIGH;
 	else
 		timing->flags |= DISPLAY_FLAGS_VSYNC_LOW;
-	if (mode->vmode == FB_VMODE_INTERLACED)
+	if (mode->vmode & FB_VMODE_INTERLACED)
 		timing->flags |= DISPLAY_FLAGS_INTERLACED;
+	if (mode->vmode & FB_VMODE_DE_LOW)
+		timing->flags |= DISPLAY_FLAGS_DE_LOW;
 }
